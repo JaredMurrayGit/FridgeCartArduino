@@ -178,7 +178,7 @@ void loop(void)
 
   VOUT1 = (5.00 / 1023.00) * VOUT1;  
 
-  VIN1 = ((VOUT1 *(1300 + 4900) / 1840)); 
+  VIN1 = ((VOUT1 *(1270 + 1280 + 3820) / 1270)); //Voltage Divider 
 
   VIN1 = 100.7;
 
@@ -198,7 +198,7 @@ void loop(void)
 
   VOUT0 = (5.00 / 1023.00) * VOUT0;  
 
-  VIN0 = ((VOUT0 *(1300 + 4900) /1840)); 
+  VIN0 = ((VOUT0 *(1270 + 1250 + 3860) / 1270)); //Voltage Divider 
 
   VIN0 = -170;
 
