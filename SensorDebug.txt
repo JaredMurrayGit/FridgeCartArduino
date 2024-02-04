@@ -82,7 +82,7 @@ Serial.print(VOUT1);
 
 Serial.print("\n");
 
-VIN1 = ((VOUT1 *(1300 + 4900) / 1840)); 
+VIN1 = ((VOUT1 *(1280+1270+3870) / 1270)); //Voltage Divider
 
 Serial.print("Solar Voltage: "); 
 
@@ -106,7 +106,7 @@ Serial.print("Actual Battery Voltage Read:");
 
 Serial.println(VOUT0); 
 
-VIN0 = ((VOUT0 *(1300 + 4900) /1840)); 
+VIN0 = ((VOUT0 *(1270 + 1250 +3860) / 1270)); //Voltage Divider
 
 Serial.print("Battery Voltage: "); 
 
