@@ -158,13 +158,12 @@ void loop(void)
   TX = (1 / ((ln / B) + (1 / T0))); //Temperature from thermistor 
 
   TX = TX - 273.15; //Conversion to Celsius 
-
-  double temp = -76.5;
+  
   uint8_t tempBytes[sizeof(double)];
-  memcpy(tempBytes, &temp, sizeof(double));
+  memcpy(tempBytes, &TX, sizeof(double));
 
   Serial.print(F("Updating Temperature value to "));
-  Serial.print(temp);
+  Serial.print(TX);
   Serial.println(F(" Celsius"));
 
 
@@ -174,13 +173,11 @@ void loop(void)
 
   //Solar values
 
-  VOUT1 = analogRead(A1); 
+  VOUT1 = analogRead(A0); 
 
   VOUT1 = (5.00 / 1023.00) * VOUT1;  
 
-  VIN1 = ((VOUT1 *(1270 + 1280 + 3820) / 1270)); //Voltage Divider 
-
-  VIN1 = 100.7;
+  VIN1 = ((VOUT1 *(4720+980) / 980)); //Voltage Divider 
 
   uint8_t solBytes[sizeof(double)];
   memcpy(solBytes, &VIN1, sizeof(double));
@@ -194,13 +191,11 @@ void loop(void)
 
   //Battery values
 
-  VOUT0 = analogRead(A0); 
+  VOUT0 = analogRead(A1); 
 
   VOUT0 = (5.00 / 1023.00) * VOUT0;  
 
-  VIN0 = ((VOUT0 *(1270 + 1250 + 3860) / 1270)); //Voltage Divider 
-
-  VIN0 = -170;
+  VIN0 = ((VOUT0 *(4710+980) / 980)); //Voltage Divider 
 
   uint8_t battBytes[sizeof(double)];
   memcpy(battBytes, &VIN0, sizeof(double));
